@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>watch-oclock</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<script src="script.js" defer></script>
+
+<style>
+
+body {
+background-image: url('casioo.jpg');
+background-position: 50% 0%;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+
+font-family: Arial, sans-serif;
+
+text-align: center;
+
+margin-top: 50px;
+
+}
+
+
+
+
+#time {
+
+background-color: none;
+display: inline-block;
+
+color: rgb(0, 0, 0);
+
+font-weight: bold;
+
+font-size: 1.2em;
+
+font-family: 'Seven Segment', sans-serif;
+font-size: 30px;
+
+margin-top: 230px;
+margin-left: 19px;
+padding: 20px;
+
+user-select: none;
+
+}
+
+
+
+
+
+
+
+
+
+</style>
+    <link href="https://fonts.cdnfonts.com/css/seven-segment" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<script>
+
+let intervalId;
+
+function updateTime() {
+
+const timeElement = document.getElementById("time");
+
+const now = new Date();
+
+timeElement.innerHTML = ` ${now.toLocaleTimeString()}`;
+
+}
+
+
+
+function startClock() {
+
+if (!intervalId) {
+
+intervalId = setInterval(updateTime, 1000);
+
+}
+
+}
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+startClock();
+
+updateTime();
+
+
+
+
+
+document.querySelector(".start-button").addEventListener("click", () => {
+
+startClock();
+
+});
+
+});
+
+
+
+function updateTime() {
+
+const timeElement = document.getElementById("time");
+
+const now = new Date();
+
+timeElement.innerHTML = ` ${now.toLocaleTimeString()}`;
+
+}
+
+setInterval(updateTime, 3000);
+
+updateTime();
+
+</script>
+
+
+<div id="time"></div>
+
+</body>
+
+</html>
+
+
+
